@@ -1,0 +1,25 @@
+.fa-power-off {
+  color: #dc3545;
+}
+
+.card {
+  background: none !important;
+}
+
+.card img {
+  margin: 1rem;
+}
+
+.login-page,
+.register-page {
+  background: url("../img/template/fondo.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.card img {
+  margin: 0 !important;
+}
+
+#dateSale{z-index:1151 !important;}
