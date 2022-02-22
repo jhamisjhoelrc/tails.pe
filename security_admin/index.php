@@ -1,45 +1,45 @@
-<?php 
+<?php
+/* ***** ******* CONFIG ****************** */
+require './app/config/config.php';
+require "./app/models/conexPDO.php";
 
-require_once 'controllers/c.template.php';
-require_once 'controllers/c.mant.php';
-require_once 'controllers/c.users.php';
-require_once 'controllers/c.sellers.php';
-require_once 'controllers/c.subsidiarys.php';
-require_once 'controllers/c.providers.php';
-require_once 'controllers/c.imports.php';
-require_once 'controllers/c.nationals.php';
-require_once 'controllers/c.customers.php';
-require_once 'controllers/c.sales.php';
-require_once 'controllers/c.notas.php';
-require_once 'controllers/c.guias.php';
-require_once 'controllers/c.rc.php';
-require_once 'controllers/c.facturation.php';
-require_once 'controllers/c.movil.php';
-require_once 'controllers/c.exchange.php';
-require_once 'controllers/c.models.php';
-require_once 'controllers/c.assemblers.php';
+/* =====================================================================
+        MODEL ...
+========================================================================*/
+require_once "app/models/query/querys.M.php";
+// require_once "app/models/query/SPquerys.M.php";
 
+/* =====================================================================
+        MODEL USUARIOS....
+========================================================================*/
 
+/* =====================================================================
+       -----CONTROLLER-----
+========================================================================*/
+require_once "app/controllers/query/querys.C.php";
 
-require_once 'models/m.mant.php';
-require_once 'models/m.users.php';
-require_once 'models/m.sellers.php';
-require_once 'models/m.subsidiarys.php';
-require_once 'models/m.providers.php';
-require_once 'models/m.imports.php';
-require_once 'models/m.nationals.php';
-require_once 'models/m.customers.php';
-require_once 'models/m.sales.php';
-require_once 'models/m.notas.php';
-require_once 'models/m.guias.php';
-require_once 'models/m.rc.php';
-require_once 'models/m.facturation.php';
-require_once 'models/m.movil.php';
-require_once 'models/m.exchange.php';
-require_once 'models/m.models.php';
-require_once 'models/m.assemblers.php';
+/* =====================================================================
+        ALMACEN CONTROLLER 
+========================================================================*/
+require_once "app/controllers/almacen/almacen.C.php";
+/* =====================================================================
+        usaurios CONTROLLER 
+========================================================================*/
+
+/* ----------------------------------------------------------
+   ---------------------login---------------------------------- */
+require_once "app/controllers/login/login.C.php";
+/* ----------------------------------------------------------
+   -----------------------FUNCTIONS----------------------------------- */
+require_once "app/php/functions.php";
 
 
+/* =====================================================================
+        CONTROLLER main app
+========================================================================*/
+require_once "app/controllers/main.C.php";
 
-$template = new Template();
-$template -> getTemplate();
+$main = new ControllerMain();
+$main->ctrMain();
+
+//or 1=1;--';

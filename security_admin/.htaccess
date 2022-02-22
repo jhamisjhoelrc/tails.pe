@@ -1,7 +1,27 @@
+#Options +FollowSymLinks
 Options All -Indexes
 
 RewriteEngine On
 
-RewriteRule ^([-a-zA-Z0-9-]+)$ index.php?route=$1
-#RewriteCond %{HTTPS} !=on
-#RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301,NE]
+RewriteRule ^([-a-zA-Z0-9-]+)$ index.php?ruta=$1
+
+##RewriteRule ^/?$ index.php?page=index [L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+#####PEIDOS
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^v1/pedidos/([0-9]+)/?$ app/src/v1/pedidos/pedidos.ng.php?id=$1&length=$2 [L,QSA]
+
+# RewriteRule ^movimientos/detalle-movmimiento-exel/([0-9]+)/?$ app/src/ajax/files/exel.php?idruta=$1&nam=$2&idmov=$3 [L,QSA]
+# RewriteRule ^movimientos/detalle-movmimiento-pdf/([0-9]+)/?$ app/src/ajax/files/pdf.php?idruta=$1&nam=$2&idmov=$3 [L,QSA]
+
+# RewriteRule ^movimientos/detalle-movmimiento-exel/([-a-zA-Z]+)/?$ resources/error/404.php?idruta=$1&nam=$2&idmov=$3 [L,QSA]
+# RewriteRule ^movimientos/detalle-movmimiento-pdf/([-a-zA-Z]+)/?$ resources/error/404.php?idruta=$1&nam=$2&idmov=$3 [L,QSA]
+
+ErrorDocument 500 "Sorry, our url not found" 
+ErrorDocument 500 /resources/error/500.php 
+ErrorDocument 404 "Sorry, our url not found" 
+ErrorDocument 401 /resources/error/401.php 
